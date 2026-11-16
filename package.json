@@ -1,0 +1,23 @@
+{
+  "name": "gemstone-business",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-vercel.mjs",
+    "validate": "node scripts/validate-artifact.mjs",
+    "dev": "node scripts/embed.mjs && node scripts/dev.mjs",
+    "test": "node scripts/embed.mjs && node tests/business-flow.mjs",
+    "start": "node scripts/embed.mjs && node --env-file-if-exists=.env.local scripts/server.mjs",
+    "test:vercel": "node scripts/embed.mjs && node tests/vercel-flow.mjs && node tests/vercel-handler.mjs",
+    "db:setup": "node --env-file-if-exists=.env.local scripts/setup-database.mjs",
+    "db:import": "node --env-file-if-exists=.env.local scripts/import-database.mjs",
+    "test:database": "node tests/database-migration.mjs"
+  },
+  "version": "1.0.0",
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "@libsql/client": "0.18.0"
+  }
+}
